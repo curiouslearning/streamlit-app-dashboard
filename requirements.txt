@@ -1,4 +1,4 @@
-streamlit==1.22.0
+streamlit==1.16.0
 google-auth==2.14.0
 google-cloud-bigquery==3.3.5
 db-dtypes==1.0.4
