@@ -1,6 +1,6 @@
 streamlit==1.16.0
 google-auth==2.14.0
-google-cloud-bigquery==3.3.5
+google-cloud-bigquery==3.11
 db-dtypes==1.0.4
 json5==0.8.4
 jsonschema==3.0.1
