@@ -7,7 +7,7 @@ This repo contains all files related to the [Curious Learning FTM Metrics Stream
 Izzy Bryant and Tinsley Galyean
 
 ## Pages
-There are currently five subpages in the dashboard, each of which have a separate python file. Summary.py is the entrypoint file, the four others are located in the pages folder.
+There are currently five subpages in the dashboard, each of which have a separate python file. *Summary.py* is the entrypoint file, the four others are located in the pages folder.
 1. Summary.py (Annual Summary across all apps and geos)
 2. Campaign_Comparison_Summary.py (High-level comparison of multiple campaigns' reach and cost effectiveness)
 3. Campaign_Details.py (Detailed metrics & related visualizations for a single campaign)
