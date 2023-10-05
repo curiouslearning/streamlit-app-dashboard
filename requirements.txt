@@ -1,14 +1,13 @@
-streamlit==1.16.0
-google-auth==2.14.0
-google-cloud-bigquery==3.3.5
-db-dtypes==1.0.4
-json5==0.8.4
-jsonschema==3.0.1
-pandas==1.3.5
-plotly==5.11.0
-plotly-express==0.4.0
+streamlit
+google-auth
+google-cloud-bigquery
+db-dtypes
+json5
+jsonschema
+plotly
+plotly-express
 jj-data-connector @ git+https://github.com/DataSolveProblems/jj_data_connector.git@ea9ccde1fee7ad382f5e145f5a0bfc7e26a2341c
-gsheetsdb==0.1.13.1
-millify==0.1.1
-plotly-calplot==0.1.7
-altair==4.0
+gsheetsdb
+millify
+plotly-calplot
+altair
