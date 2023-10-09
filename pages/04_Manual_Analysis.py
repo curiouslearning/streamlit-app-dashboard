@@ -36,7 +36,7 @@ def run_query(query):
     rows = rows.fetchall()
     return rows
 
-@st.experimental_memo
+@st.cache_data
 def get_user_data(start_date, end_date, apps, countries):
     start = start_date.strftime('%Y%m%d')
     end = end_date.strftime('%Y%m%d')
@@ -62,7 +62,7 @@ def get_user_data(start_date, end_date, apps, countries):
     df['max_lvl_date'] = (pd.to_datetime(df['max_lvl_date'])).dt.date
     return df
 
-@st.experimental_memo
+@st.cache_data
 def get_apps_data():
     apps_sheet_url = st.secrets["ftm_apps_gsheets_url"]
     apps_rows = run_query(f'SELECT app_id, language, bq_property_id, bq_project_id, total_lvls FROM "{apps_sheet_url}"')
@@ -70,7 +70,7 @@ def get_apps_data():
         data = apps_rows)
     return apps_data
 
-@st.experimental_memo
+@st.cache_data
 def get_ra_segments(total_lvls, user_data):
     df = pd.DataFrame(columns = ['segment', 'la', 'perc_la', 'ra'])
     seg = []
@@ -104,7 +104,7 @@ def get_ra_segments(total_lvls, user_data):
     res['la_perc'] = res['la'] / res['la'].sum()
     return res
 
-@st.experimental_memo
+@st.cache_data
 def get_daily_activity(user_data, start_date, langs, apps, countries, bq_ids, property_ids):
     user_ids = user_data['user_pseudo_id'].tolist()
     res = pd.DataFrame()
