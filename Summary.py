@@ -36,7 +36,7 @@ def run_query(query):
     rows = rows.fetchall()
     return rows
 
-@st.experimental_memo
+@st.cache_data
 def get_campaign_data():
     campaign_sheet_url = st.secrets["Campaign_gsheets_url"]
     campaign_rows = run_query(f'SELECT * FROM "{campaign_sheet_url}"')
@@ -50,7 +50,7 @@ def get_campaign_data():
     })
     return campaign_data
 
-# @st.experimental_memo
+# @st.cache_data
 def get_annual_campaign_data():
     ann_campaign_sheet_url = st.secrets["ann_camp_metrics_gsheets_url"]
     year = pd.to_datetime("today").date().year
@@ -65,7 +65,7 @@ def get_annual_campaign_data():
     ann_camp_data = ann_camp_data[ann_camp_data['year'] < year+1]
     return ann_camp_data
 
-@st.experimental_memo
+@st.cache_data
 def get_user_data(today):
     sql_query = f"""
         SELECT * FROM `dataexploration-193817.user_data.ftm_users`
@@ -77,7 +77,7 @@ def get_user_data(today):
     df['max_lvl_date'] = (pd.to_datetime(df['max_lvl_date'])).dt.date
     return df
 
-@st.experimental_memo
+@st.cache_data
 def get_apps_data():
     apps_sheet_url = st.secrets["ftm_apps_gsheets_url"]
     apps_rows = run_query(f'SELECT app_id, language, bq_property_id, bq_project_id, total_lvls FROM "{apps_sheet_url}"')
@@ -85,7 +85,7 @@ def get_apps_data():
         data = apps_rows)
     return apps_data
 
-@st.experimental_memo
+@st.cache_data
 def get_campaign_metrics():
     camp_metrics_url = st.secrets["campaign_metrics_gsheets_url"]
     camp_metrics_rows = run_query(f'SELECT * FROM "{camp_metrics_url}"')
@@ -182,7 +182,7 @@ def get_monthly_la_fig(daily_la, norm):
             title='Monthly LA')
     return monthly_la_fig
 
-@st.experimental_memo
+@st.cache_data
 def get_normalized_start_df(daily_la):
     res = daily_la
     res['day'] = -1
@@ -198,7 +198,7 @@ def get_normalized_start_df(daily_la):
             camp = row['campaign']
     return res
 
-@st.experimental_memo
+@st.cache_data
 def get_ra_segments(total_lvls, user_data):
     df = pd.DataFrame(columns = ['segment', 'la', 'perc_la', 'ra', 'rac'])
     seg = []
