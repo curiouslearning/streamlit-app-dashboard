@@ -3,3 +3,4 @@ secrets.toml
 *key.json
 .streamlit/secrets.toml
 .venv
+.vscode/

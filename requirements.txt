@@ -11,3 +11,4 @@ gsheetsdb
 millify
 plotly-calplot
 altair
+calplot
