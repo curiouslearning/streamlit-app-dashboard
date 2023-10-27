@@ -402,11 +402,13 @@ campaign_data = get_campaign_metrics()
 campaign_data = campaign_data[
     campaign_data["campaign_name"].isin(st.session_state["campaigns"])
 ]
-campaign_data = pd.fillna(0)
+# convert NaN values to 0
+campaign_data = campaign_data.fillna(0)
+
 col1, col2 = st.columns(2)
 col1.metric("Total LA", millify(str(len(users_df))))
 avg_ra = np.average(campaign_data["ra"], weights=campaign_data["la"])
-breakpoint()
+
 col2.metric("Avg RA (Weighted)", millify(avg_ra, precision=2))
 st.markdown("***")
 col1, col2 = st.columns(2)

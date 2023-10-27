@@ -4,3 +4,4 @@ secrets.toml
 .streamlit/secrets.toml
 .venv
 .vscode/
+.prettierrc

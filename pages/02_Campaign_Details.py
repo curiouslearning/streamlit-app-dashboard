@@ -402,11 +402,16 @@ if cb == True:
     )
     tab1.plotly_chart(daily_activity_fig)
 
-    daily_activity.rename({"event_date": "date"})
-    daily_activity["date"] = pd.to_datetime(daily_activity["date"], utc=True)
-    print(daily_activity)
+    import numpy as np
 
-    events = pd.Series(daily_activity["date"], index=None)
-    da_fig = calplot.calplot(events)
-    tab2.plotly_chart(da_fig)
+    fig = px.scatter(
+        daily_activity,
+        x="event_date",
+        y="levels_played",
+        size="levels_played",
+        title="Levels Played Over Time",
+    )
+
+    tab2.plotly_chart(fig, use_container_width=True)
+
 st.markdown("***")
