@@ -161,6 +161,7 @@ def get_campaign_metrics():
     camp_metrics_data = pd.DataFrame(
         columns=["campaign_name", "la", "lac", "ra", "rac"], data=camp_metrics_rows
     )
+    camp_metrics_data = camp_metrics_data.fillna(0)
     camp_metrics_data = camp_metrics_data.astype(
         {"la": "int", "lac": "float", "ra": "float", "rac": "float"}
     )
