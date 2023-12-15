@@ -9,7 +9,7 @@ from gsheetsdb import connect
 import datetime
 import pandas as pd
 import db_dtypes
-import plotly.express as px
+
 import plotly.graph_objects as go
 from millify import millify
 import numpy as np
